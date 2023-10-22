@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XXXXXXXX">
+    <meta name="keywords" content="XXXXXXX">
+    <title>My.resto</title>
+    <link rel="shortcut icon" href="asset/my.restoredondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/estilos.css">
+    <title>Document</title>
+</head>
+<body class="bgcolor">
+    <header>
+        <nav class="navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="asset/my.restoredondo.png" width="100px" height="100px" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./Pages/Productos.html">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./Pages/Sobre_nosotros.html">Sobre nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./Pages/Contacto.html">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+      <div>
+          <h1 class="letra offset-sm-2 mt-2">Bienvenido, ¿qué te gustaría comer?</h1>
+          <input type="text" id="buscador" class="offset-sm-2 mt-2 bgcolor letra" placeholder="Haz tu búsqueda">
+      </div>
+      <section class="container">
+          <div id="productos">
+              <!-- Contenido de productos se agregará dinámicamente aquí -->
+          </div>
+      </section>
+      <section>
+        <h2><span id="CantidadProductos">0</span> productos en el carrito</h2>
+        <div id="Carrito"></div>
+        <h2>Total: $<span id="TotalCarrito">0</span></h2>
+      </section>
+  </main>
+  <footer>
+      <div class="mt-5">
+          <!-- Contenido del pie de página aquí -->
+      </div>
+  </footer>
+
+  <script src="./JS/bootstrap.bundle.min.js"></script>
+  <script src="./JS/script.js"></script>
+
+</body>
+
+</html>

@@ -153,6 +153,12 @@ function cargarProductos(productos) {
             const idProducto = Number(boton.dataset.id);
             const producto = bd.registrosPorId(idProducto);
             carrito.agregar(producto);
+            Toastify({
+                        text: `Agregaste ${producto.nombre} a tu pedido`,
+                        style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        }
+                    }).showToast();
         });
     }
 }

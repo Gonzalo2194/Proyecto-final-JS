@@ -107,13 +107,13 @@ class Carrito{
     
 }
 
-
 const bd = new Basedatos();
 
 const spanCantidadProductos = document.querySelector("#CantidadProductos");  
 const spanTotalCarrito = document.querySelector("#TotalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector ("#Carrito");
+const buscador = document.querySelector ("#buscador");
 
 const carrito = new Carrito();
 
@@ -149,5 +149,10 @@ function cargarProductos(productos) {
     }
 }
 
-
+buscador.addEventListener("input", (event) =>{
+    event.preventDefault();
+    const palabra = buscador.value;
+    const productos = bd.RegistrosPorNombre(palabra);
+    cargarProductos(productos);
+});
 

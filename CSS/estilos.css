@@ -44,6 +44,9 @@ a{
 	height: 200px;
 	transition: transform 0.3s ease;
 	cursor: pointer; 
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
 	
 }
 
@@ -72,9 +75,26 @@ li{
 	color: aliceblue;
 	font: 10px;
 }
-
-.prueba{
-	border: 30px;
-	border-color: blueviolet;
+.form-control {
+	width: 30%;
+	margin-top: 70px;
 }
 
+.search{
+	padding-left: 10px;
+	margin-bottom: 80px;
+	
+}
+
+p.letrapedido {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.btn {
+	margin-left: 10px;
+	justify-content: center;
+	align-items: center;
+}

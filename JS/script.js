@@ -87,7 +87,7 @@ class Carrito{
                 <h2>${producto.nombre} </h2> 
                 <p>$${producto.precio} </p>
                 <p>Cantidad: ${producto.cantidad}</p>
-                <a href="#" class= "btnQuitar" data-id="${producto.id}">Quitar del carrito</a>
+                <a href="#" class= "btnQuitar btn btn-danger" data-id="${producto.id}">Quitar del carrito</a>
             </div>
             `;
             this.total += producto.precio * producto.cantidad;
@@ -111,7 +111,7 @@ const bd = new Basedatos();
 
 const spanCantidadProductos = document.querySelector("#CantidadProductos");  
 const spanTotalCarrito = document.querySelector("#TotalCarrito");
-const divProductos = document.querySelector("#productos");
+const sectionProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector ("#Carrito");
 const buscador = document.querySelector ("#buscador");
 
@@ -120,19 +120,18 @@ const carrito = new Carrito();
 cargarProductos(bd.TraerRegistros());
 //
 function cargarProductos(productos) {
-    divProductos.innerHTML= ""
+    sectionProductos.innerHTML= ""
     for (const producto of productos) {
-        divProductos.innerHTML += `
-        <section class="container container-fluid row mt-5 ">
+        sectionProductos.innerHTML += `
+        <section class="container row">
             <div class="productos">
                 <h2>${producto.nombre}</h2>
-                <p class= "letrapedido">$${producto.precio}</p>
-                <div class= " img bordes">
+                <div class= "img bordes">
                     <img class ="img" src="asset/${producto.imagen}"< />
-                </div>
-        </section>        
-                <a href="#" class= "letrapedido btnAgregar" data-id="${producto.id}">Agregar al carrito</a>
-                </div>
+                <p class= "letrapedido">$${producto.precio}</p>
+            </div>
+            <a href="#" class= "mt-4 letrapedido btnAgregar btn btn-success" data-id="${producto.id}">Agregar al carrito<a>
+                </section>    
             `;
     }
 
@@ -155,4 +154,6 @@ buscador.addEventListener("input", (event) =>{
     const productos = bd.RegistrosPorNombre(palabra);
     cargarProductos(productos);
 });
+
+
 

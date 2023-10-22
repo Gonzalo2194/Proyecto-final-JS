@@ -36,16 +36,16 @@
           </nav>
     </header>
     <main>
-      <div>
-          <h1 class="letra offset-sm-2 mt-2">Bienvenido, ¿qué te gustaría comer?</h1>
-          <input id="buscador" type="text" class="offset-sm-2 mt-2 bgcolor letra" placeholder="Busca tu comida...">
+      <div class="row container-fluid">
+          <h1 class="letra mt-2">Bienvenido, ¿qué te gustaría comer?</h1>
+          <input id="buscador" type="text" class="form-control offset-sm-2 mt-2 me-2 bgcolor letra search" placeholder="Busca tu comida..."> 
       </div>
-      <section class="container row">
-          <div id="productos">
+      <section class="container-fluid productos">
+          <div id="productos" class="col-md-3">
               <!-- Contenido de productos se agregará dinámicamente aquí -->
           </div>
       </section>
-      <section class="container-fluid col-md-4 letrapedido">
+      <section class="container-fluid col-md-3 letrapedido">
         <h2><span id="CantidadProductos">0</span> productos en el carrito</h2>
         <div id="Carrito"></div>
         <h2>Total: $<span id="TotalCarrito"></span></h2>

@@ -42,9 +42,12 @@ class Basedatos {
 
 class Carrito{
     constructor(){
-        this.carrito = [];
+        const carritoStorage= JSON.parse(localStorage.getItem("carrito"));
+        this.carrito = carritoStorage || [];
         this.total = 0;
         this.CantidadProductos = 0;
+        this.listar();
+        
     }
     estaEnCarrito({ id }){
         return this.carrito.find((producto) => producto.id == id);
@@ -58,6 +61,7 @@ class Carrito{
             productoEncarrito.cantidad++; 
             
         }
+        localStorage.setItem("carrito", JSON.stringify(this.carrito));
         this.listar();
     }
 
@@ -68,6 +72,7 @@ class Carrito{
         } else{
             this.carrito.splice (indice, 1);
         }
+        localStorage.setItem("carrito", JSON.stringify(this.carrito));
         this.listar();
     }
 
@@ -104,11 +109,13 @@ class Carrito{
 
 
 const bd = new Basedatos();
-const carrito = new Carrito();
+
 const spanCantidadProductos = document.querySelector("#CantidadProductos");  
 const spanTotalCarrito = document.querySelector("#TotalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector ("#Carrito");
+
+const carrito = new Carrito();
 
 cargarProductos(bd.TraerRegistros());
 //

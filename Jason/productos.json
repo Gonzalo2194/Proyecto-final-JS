@@ -1,0 +1,44 @@
+[ 
+    {
+        "id":1,
+        "nombre": "Hamburguesa con queso",
+        "precio":150,
+        "categoria": "burguers",
+        "imagen":"pexels-oleksandr-p-12932961 (1).jpg"
+    },
+    {
+        "id":2,
+        "nombre": "Empanada de carne",
+        "precio":190,
+        "categoria": "empanadas",
+        "imagen":"empanadas.jpg"
+    },
+    {
+        "id":3,
+        "nombre": "Coca Cola",
+        "precio":50,
+        "categoria": "refrescos",
+        "imagen":"gaseosa.jpg"
+    },
+    {
+        "id":4,
+        "nombre": "Pizza",
+        "precio":200,
+        "categoria": "pizzas",
+        "imagen":"pizza.jpg"
+    },
+    {
+        "id":5,
+        "nombre": "Papas fritas",
+        "precio":220,
+        "categoria": "fritas",
+        "imagen":"fritas.jpg"
+    },
+    {
+        "id":6,
+        "nombre": "Tiramisú",
+        "precio":150,
+        "categoria": "postres",
+        "imagen":"tiramisu.jpg"
+    }
+]

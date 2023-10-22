@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XXXXXXXX">
+    <meta name="keywords" content="XXXXXXX">
+    <title>My.resto</title>
+    <link rel="shortcut icon" href="asset/my.restoredondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./CSS/estilos.css">
+    <title>Document</title>
+</head>
+<body class="bgcolor">
+    <header>
+        <nav class="navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="asset/my.restoredondo.png" width="100px" height="100px" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+      <div class="row container-fluid">
+          <h1 class="letra mt-2">Bienvenido, ¿qué te gustaría comer?</h1>
+          <input id="buscador" type="text" class="form-control offset-sm-2 mt-2 me-2 bgcolor letra search" placeholder="Busca tu comida..."> 
+      </div>
+      <div class="productos d-flex">
+        <div id="productos" class="grid-container">
+            <!-- Contenido de productos se agregará dinámicamente aquí -->
+        </div>
+    </div>
+      </section>
+      <section class="container-fluid col-md-3 letrapedido">
+        <h2><span id="CantidadProductos">0 </span> productos en carrito</h2>
+        <div id="Carrito"></div>
+        <h2>Total: $<span id="TotalCarrito"></span></h2>
+        <a href="#" id="botoncomprar" class="boton btn-success">Comprar</a>
+      </section>
+  </main>
+    
+    <footer class="container-fluid d-flex footercolor text-white">
+      <!--enlaces relativos y absolutos en redes sociales-->
+      <div class="row offset-sm-7 ">
+              <p class="col col-md-auto " > Términos y condiciones</p>
+              <p  class="col col-md-auto " >Todos los derechos reservados</p>
+          <section class="col col-md-auto" >
+              <a target="_blank" href="https://www.linkedin.com/"><img src="./asset/Linkedin logo.png"width="25px" height="25px" alt="Logo Linkedin"></a>
+              <a target="_blank" href="https://www.instagram.com"><img src="./asset/IG logo.png" width="25px" height="25px"alt="Logo Instagram"></a>
+              <a target="_blank" href="https://www.facebook.com"><img src="./asset/FB logo.png" width="25px" height="25px"alt="Logo Facebook"></a>
+          </section>
+      </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./JS/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="./JS/script.js"></script>
+</body>
+
+</html>

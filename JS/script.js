@@ -12,19 +12,17 @@ class Producto {
 class Basedatos {
     constructor(){
         this.productos = [];
-        this.agregarRegistro(1,"Hamburguesa con queso", 150,"burgers","pexels-oleksandr-p-12932961 (1).jpg");
-        this.agregarRegistro(2,"Empanada", 190,"empanadas","empanadas.jpg")
-        this.agregarRegistro(3,"Coca Cola", 50,"refrescos","gaseosa.jpg")
-        this.agregarRegistro(4,"Pizza", 200,"Pizzas","pizza.jpg")
-        this.agregarRegistro(5,"Papas fritas", 220,"fritas","fritas.jpg")
-        this.agregarRegistro(6,"Tiramisú", 150,"postres","tiramisu.jpg")
+        this.cargarRegistros();
     }
 
-    agregarRegistro(id, nombre, precio, categoria, imagen){
-        const producto = new Producto (id, nombre, precio, categoria, imagen);
-        this.productos.push(producto);
-
+    async cargarRegistros(){ 
+        const resultado = await fetch ('./jason/productos.json');
+        this.productos = await resultado.json();
+        console.log(this.productos);
+        cargarProductos(this.productos);
     }
+
+
     TraerRegistros() {
         return this.productos;
     } 
@@ -88,7 +86,7 @@ class Carrito{
         this.total = 0;
         this.CantidadProductos = 0;
         divCarrito.innerHTML = "";
-
+        
         for (const producto of this.carrito){
             divCarrito.innerHTML += `
             <div class="productoCarrito">
@@ -102,6 +100,12 @@ class Carrito{
             this.total += producto.precio * producto.cantidad;
             this.CantidadProductos += producto.cantidad;
         }
+        if (this.CantidadProductos > 0) {
+            botoncomprar.style.display = "block";
+        }else{
+            botoncomprar.style.display = "none";
+        }
+
         const botonesQuitar = document.querySelectorAll(".btnQuitar");
         for (const boton of botonesQuitar)
             boton.addEventListener("click",(Event)=>{
@@ -140,6 +144,7 @@ function cargarProductos(productos) {
                 <p class= "letrapedido">$${producto.precio}</p>
             </div>
             <a href="#" class= "mt-4 letrapedido btnAgregar btn btn-success" data-id="${producto.id}">Agregar al carrito<a>
+            </div>
                 </section>    
             `;
     }

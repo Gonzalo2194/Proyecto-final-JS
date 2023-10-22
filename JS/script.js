@@ -75,6 +75,14 @@ class Carrito{
         localStorage.setItem("carrito", JSON.stringify(this.carrito));
         this.listar();
     }
+    
+    vaciar(){
+        this.total=0;
+        this.CantidadProductos = 0;
+        this.carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(this.carrito));
+        this.listar();
+    }
 
     listar(){
         this.total = 0;
@@ -89,11 +97,11 @@ class Carrito{
                 <p>Cantidad: ${producto.cantidad}</p>
                 <a href="#" class= "btnQuitar btn btn-danger" data-id="${producto.id}">Quitar del carrito</a>
             </div>
+        
             `;
             this.total += producto.precio * producto.cantidad;
             this.CantidadProductos += producto.cantidad;
         }
-
         const botonesQuitar = document.querySelectorAll(".btnQuitar");
         for (const boton of botonesQuitar)
             boton.addEventListener("click",(Event)=>{
@@ -114,6 +122,7 @@ const spanTotalCarrito = document.querySelector("#TotalCarrito");
 const sectionProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector ("#Carrito");
 const buscador = document.querySelector ("#buscador");
+const botoncomprar = document.querySelector("#botoncomprar");
 
 const carrito = new Carrito();
 
@@ -155,5 +164,25 @@ buscador.addEventListener("input", (event) =>{
     cargarProductos(productos);
 });
 
-
+botoncomprar.addEventListener("click", (event) =>{
+    event.preventDefault ();
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Deseas finalizar la compra?',
+        showCancelButton: true,
+        confirmButtonText: "Si",
+        cancelButton:"No",
+    }) .then((result)=> {
+        if (result.isConfirmed) {
+            carrito.vaciar();
+            Swal.fire({
+                title: "Compra exitosa, disfruta de tu comida",
+                icon: "success",
+                text: "Su compra ha sido finalizada con éxito",
+                timer:1800,
+            })
+        }
+    })
+});
 

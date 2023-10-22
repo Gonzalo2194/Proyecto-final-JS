@@ -98,3 +98,9 @@ p.letrapedido {
 	justify-content: center;
 	align-items: center;
 }
+
+.boton{
+	border-radius: 10px;
+	display: flex;
+	width: 70px;	
+}

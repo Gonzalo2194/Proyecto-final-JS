@@ -20,7 +20,7 @@ class Basedatos {
         this.agregarRegistro(6,"Tiramisú", 150,"postres","tiramisu.jpg")
     }
 
-    agregarRegistro(id, nombre ,precio, categoria, imagen){
+    agregarRegistro(id, nombre, precio, categoria, imagen){
         const producto = new Producto (id, nombre, precio, categoria, imagen);
         this.productos.push(producto);
 
@@ -35,7 +35,7 @@ class Basedatos {
     }
     
     RegistrosPorNombre (palabra){
-        return this.productos.filter ((producto)=> producto.nombre.toLowerCase(). includes(palabra.toLowerCase()));
+        return this.productos.filter ((producto)=> producto.nombre.toLowerCase().includes(palabra.toLowerCase()));
     
     }
 }
@@ -44,7 +44,7 @@ class Carrito{
     constructor(){
         this.carrito = [];
         this.total = 0;
-        this.cantidadProductos = 0;
+        this.CantidadProductos = 0;
     }
     estaEnCarrito({ id }){
         return this.carrito.find((producto) => producto.id == id);
@@ -73,7 +73,7 @@ class Carrito{
 
     listar(){
         this.total = 0;
-        this.cantidadProductos = 0;
+        this.CantidadProductos = 0;
         divCarrito.innerHTML = "";
 
         for (const producto of this.carrito){
@@ -86,7 +86,7 @@ class Carrito{
             </div>
             `;
             this.total += producto.precio * producto.cantidad;
-            this.cantidadProductos += producto.cantidad;
+            this.CantidadProductos += producto.cantidad;
         }
 
         const botonesQuitar = document.querySelectorAll(".btnQuitar");
@@ -96,7 +96,7 @@ class Carrito{
                 const idProducto = Number(boton.dataset.id);
                 this.quitar(idProducto);
             });
-            spanCantidadProductos.innerText = this.cantidadProductos;
+            spanCantidadProductos.innerText = this.CantidadProductos;
             spanTotalCarrito.innerText = this.total;  
         }       
     
@@ -105,8 +105,8 @@ class Carrito{
 
 const bd = new Basedatos();
 const carrito = new Carrito();
-const spanCantidadProductos = document.querySelector("#Cantidadproductos");  
-const spanTotalCarrito = document.querySelector("#totalcarrito");
+const spanCantidadProductos = document.querySelector("#CantidadProductos");  
+const spanTotalCarrito = document.querySelector("#TotalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector ("#Carrito");
 
@@ -116,8 +116,8 @@ function cargarProductos(productos) {
     divProductos.innerHTML= ""
     for (const producto of productos) {
         divProductos.innerHTML += `
-        <section class="container-fluid row mt-5 ">
-            <div class="">
+        <section class="container container-fluid row mt-5 ">
+            <div class="productos">
                 <h2>${producto.nombre}</h2>
                 <p class= "letrapedido">$${producto.precio}</p>
                 <div class= " img bordes">
@@ -135,9 +135,8 @@ function cargarProductos(productos) {
     for (const boton of botonesAgregar) {
         boton.addEventListener("click", (event) => {
             event.preventDefault();
-            const idProducto = +boton.dataset.id;
+            const idProducto = Number(boton.dataset.id);
             const producto = bd.registrosPorId(idProducto);
-            console.log (producto);
             carrito.agregar(producto);
         });
     }
